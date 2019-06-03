@@ -51,9 +51,9 @@ $config = [
             'rules' => [
             ],
         ],
-
     ],
     'params' => $params,
+    'defaultRoute' => 'cv/index',
 ];
 
 if (YII_ENV_DEV) {
