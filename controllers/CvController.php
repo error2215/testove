@@ -30,7 +30,9 @@ class CvController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $cvs = Cv::find()
+        ->all();
+        return $this->render('index', ['cvs' => $cvs]);
     }
 
     public function actionAdd()
@@ -52,6 +54,16 @@ class CvController extends Controller
 
         return $this->render('add', [
             'file' => $file
+        ]);
+    }
+
+    public function actionLoad(){
+        $request = Yii::$app->request;
+
+        $source = $request->get('source');
+
+        return $this->render('load', [
+            'source' => $source
         ]);
     }
 }

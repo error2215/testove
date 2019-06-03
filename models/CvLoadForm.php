@@ -14,7 +14,7 @@ class CvLoadForm extends Model
     public function rules()
     {
         return [
-            [['file'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf, doc, docx'],
+            [['file'], 'file', 'extensions' => 'pdf, doc, docx'],
         ];
     }
 
@@ -29,7 +29,7 @@ class CvLoadForm extends Model
             $cv = new Cv();
             $cv->user_id = Yii::$app->user->identity->getId();
             $cv->name = $name;
-            $cv->source = 'web/cv/' . $name . '.' . $extension;
+            $cv->source = 'cv/' . $name . '.' . $extension;
             $cv->save();
             return true;
         } else {
